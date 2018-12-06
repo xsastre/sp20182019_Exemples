@@ -1,5 +1,6 @@
 package spu03_exemples;
 
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -15,15 +16,15 @@ public class ExempleHTTPClient {
     BufferedReader in = new BufferedReader(
 
     new InputStreamReader(socket.getInputStream()));
-    // send an HTTP request to the web server
+    // Enviar una peticio HTTP al servidor web
     out.println("GET /search?q=cide HTTP/1.1");
     out.println("Host: www.google.com:80");
     out.println("Connection: Close");
     out.println();
 
-    // read the response
+    // llegeix la resposta
     boolean loop = true;
-    StringBuilder sb = new StringBuilder(8096);
+    /*StringBuilder sb = new StringBuilder(8096);
     while (loop) {
       if (in.ready()) {
         int i = 0;
@@ -34,7 +35,19 @@ public class ExempleHTTPClient {
         loop = false;
       }
     }
-    System.out.println(sb.toString());
+    System.out.println(sb.toString());*/
+    String resposta="";
+    while (loop) {
+    	if (in.ready()) {
+    		int i = 0;
+    		while (i != -1) {
+    			i = in.read();
+    			resposta=resposta+((char) i);
+    		}
+    		loop = false;
+    	}
+    }
     socket.close();
+    System.out.println(resposta);
   }
 }
