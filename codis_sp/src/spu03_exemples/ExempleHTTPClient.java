@@ -24,18 +24,6 @@ public class ExempleHTTPClient {
 
     // llegeix la resposta
     boolean loop = true;
-    /*StringBuilder sb = new StringBuilder(8096);
-    while (loop) {
-      if (in.ready()) {
-        int i = 0;
-        while (i != -1) {
-          i = in.read();
-          sb.append((char) i);
-        }
-        loop = false;
-      }
-    }
-    System.out.println(sb.toString());*/
     String resposta="";
     while (loop) {
     	if (in.ready()) {
@@ -47,6 +35,20 @@ public class ExempleHTTPClient {
     		loop = false;
     	}
     }
+    /* Aquí teniu una altra manera de fer-ho utilitzant StringBuilder
+     * StringBuilder sb = new StringBuilder(8096);
+    while (loop) {
+      if (in.ready()) {
+        int i = 0;
+        while (i != -1) {
+          i = in.read();
+          sb.append((char) i);
+        }
+        loop = false;
+      }
+    }
+    System.out.println(sb.toString());*/
+
     socket.close();
     System.out.println(resposta);
   }
