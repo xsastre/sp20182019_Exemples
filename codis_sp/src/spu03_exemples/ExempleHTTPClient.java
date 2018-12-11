@@ -17,7 +17,7 @@ public class ExempleHTTPClient {
 
     new InputStreamReader(socket.getInputStream()));
     // Enviar una peticio HTTP al servidor web
-    out.println("GET /search?q=cide HTTP/1.1");
+    out.println("GET /search?q=mrsalvab HTTP/1.1");
     out.println("Host: www.google.com:80");
     out.println("Connection: Close");
     out.println();
